@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5043116723129042" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="438.0" prefWidth="913.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop4and5.controllers.MainScreenController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="428.0" prefWidth="433.0">
+         <children>
+            <Label layoutX="10.0" layoutY="11.0" text="Inventory Management System (hsaini28)" textFill="#fffefe">
+               <font>
+                  <Font name="Segoe UI Black" size="16.0" />
+               </font>
+            </Label>
+            <Pane layoutX="36.0" layoutY="63.0" prefHeight="317.0" prefWidth="402.0" style="-fx-border-color: white; -fx-border-radius: 20;">
+               <children>
+                  <GridPane layoutX="3.0" layoutY="14.0" prefHeight="30.0" prefWidth="394.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.14285278320312" minWidth="10.0" prefWidth="46.71428680419922" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.28571319580078" minWidth="10.0" prefWidth="242.28571319580078" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Parts" textFill="WHITE">
+                           <font>
+                              <Font name="Aparajita" size="23.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="partSearch" onAction="#onPartSearch" prefHeight="25.0" prefWidth="270.0" promptText="Search by PartId or Name" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="mainScreenPartsTable" layoutX="3.0" layoutY="58.0" prefHeight="247.0" prefWidth="394.0" style="-fx-border-color: white;" />
+               </children>
+            </Pane>
+            <ButtonBar layoutX="91.0" layoutY="387.0" prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button fx:id="addPartBtn" mnemonicParsing="false" onAction="#openAddPartView" style="-fx-background-color: rgba(170, 250, 171);" text="Add" />
+                  <Button fx:id="modifyPartBtn" mnemonicParsing="false" onAction="#openModifyPartView" style="-fx-background-color: rgba(170, 237, 250);" text="Modify" />
+                  <Button fx:id="deletePartBtn" mnemonicParsing="false" onAction="#onDeletePartBtn" style="-fx-background-color: rgba(250, 170, 170);" text="Delete" />
+              </buttons>
+            </ButtonBar>
+         </children></AnchorPane>
+      <AnchorPane maxWidth="600.0" minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="432.0">
+         <children>
+            <Pane layoutX="26.0" layoutY="63.0" prefHeight="317.0" prefWidth="394.0" style="-fx-border-color: white; -fx-border-radius: 20;">
+               <children>
+                  <GridPane layoutX="3.0" layoutY="14.0" prefHeight="30.0" prefWidth="394.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="138.14285278320312" minWidth="10.0" prefWidth="46.71428680419922" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="242.28571319580078" minWidth="10.0" prefWidth="242.28571319580078" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Products" textFill="WHITE">
+                           <font>
+                              <Font name="Aparajita" size="23.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="productSearch" onAction="#onProductSearch" prefHeight="25.0" prefWidth="270.0" promptText="Search by ProductId or Name" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TableView fx:id="mainScreenProductsTable" layoutX="3.0" layoutY="58.0" prefHeight="247.0" prefWidth="387.0" />
+               </children>
+            </Pane>
+            <ButtonBar layoutX="79.0" layoutY="384.0" prefHeight="40.0" prefWidth="200.0">
+               <buttons>
+                  <Button fx:id="addProductBtn" mnemonicParsing="false" onAction="#openAddProductView" style="-fx-background-color: rgba(170, 250, 171);" text="Add" />
+                  <Button fx:id="modifyProductBtn" mnemonicParsing="false" onAction="#openModifyProductView" style="-fx-background-color: rgba(170, 237, 250);" text="Modify" />
+                  <Button fx:id="deleteProductBtn" mnemonicParsing="false" onAction="#onDeleteProductBtn" style="-fx-background-color: rgba(250, 170, 170);" text="Delete" />
+               </buttons>
+            </ButtonBar>
+            <ButtonBar layoutX="-14.0" layoutY="7.0" prefHeight="40.0" prefWidth="457.0">
+               <buttons>
+                  <Button mnemonicParsing="false" onAction="#onSaveObj" style="-fx-background-color: rgba(170, 250, 171);" text="Save Object" />
+                  <Button mnemonicParsing="false" onAction="#onLoadFile" style="-fx-background-color: rgba(170, 237, 250);" text="Load File" />
+                  <Button mnemonicParsing="false" onAction="#onSaveDB" style="-fx-background-color: rgba(170, 250, 171);" text="Save DB" />
+                  <Button mnemonicParsing="false" onAction="#onLoadDB" style="-fx-background-color: rgba(170, 237, 250);" text="Load DB" />
+                  <Button fx:id="mainScreenExitBtn" mnemonicParsing="false" onAction="#onExitBtn" prefWidth="37.0" style="-fx-background-color: rgba(252, 121, 121);" text="Exit" />
+               </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+  </items>
+</SplitPane>
